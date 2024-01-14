@@ -1,0 +1,10 @@
+
+
+#Stage 1
+FROM node:18.4-alpine as builder
+USER node
+WORKDIR /app
+COPY package.json .
+RUN yarn install
+COPY . .
+ENTRYPOINT ["yarn","dev"]
